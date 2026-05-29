@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="CadParcial2MZP/CadParcial2MZP.csproj" Id="54fc541c-8aad-4c65-91df-825445659e4a" />
   <Project Path="ClnParcial2MZP/ClnParcial2MZP.csproj" Id="145b2c0f-86de-41a5-bb66-1ae8762eef86" />
   <Project Path="CpParcial2MZP/CpParcial2MZP.csproj" Id="9fb83f91-af4e-4ad3-a835-53b020403795" />
