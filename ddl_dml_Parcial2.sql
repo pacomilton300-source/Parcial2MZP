@@ -33,9 +33,16 @@ CREATE TABLE Canal(
 );
 
 
+CREATE TABLE CategoriaPrograma(
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(30),
+    estado SMALLINT
+);
+
 CREATE TABLE Programa(
     id INT IDENTITY(1,1) PRIMARY KEY,
     idCanal INT,
+    idCategoriaPrograma INT,
     titulo VARCHAR(100),
     descripcion VARCHAR(250),
     duracion INT,
@@ -45,8 +52,22 @@ CREATE TABLE Programa(
 
     CONSTRAINT FK_Programa_Canal
     FOREIGN KEY(idCanal)
-    REFERENCES Canal(id)
+    REFERENCES Canal(id),
+
+    CONSTRAINT FK_Programa_CategoriaPrograma
+    FOREIGN KEY(idCategoriaPrograma)
+    REFERENCES CategoriaPrograma(id)
 );
+
+-- Insertar categorías
+INSERT INTO CategoriaPrograma (nombre, estado)
+VALUES 
+('Informativo', 1),
+('Entretenimiento', 1),
+('Educativo', 1),
+('Deportivo', 1),
+('Cultural', 1),
+('Infantil', 1);
 
 -- Insertar canales
 INSERT INTO Canal (nombre, frecuencia, estado)
@@ -56,14 +77,14 @@ VALUES
 ('Canal Deportes', 'UHF-15', 1);
 
 -- Insertar programas asociados a los canales
-INSERT INTO Programa (idCanal, titulo, descripcion, duracion, productor, fechaEstreno, estado)
+INSERT INTO Programa (idCanal, idCategoriaPrograma, titulo, descripcion, duracion, productor, fechaEstreno, estado)
 VALUES
-(1, 'Noticias de la Mañana', 'Resumen informativo diario', 60, 'Juan Pérez', '2026-05-01', 1),
-(1, 'Cine Clásico', 'Películas clásicas de los años 80 y 90', 120, 'María López', '2026-05-10', 1),
-(2, 'Documentales del Mundo', 'Exploración de culturas y naturaleza', 90, 'Carlos Gómez', '2026-05-15', 1),
-(2, 'Arte y Cultura', 'Programa sobre arte contemporáneo', 45, 'Ana Torres', '2026-05-20', 1),
-(3, 'Fútbol en Vivo', 'Transmisión de partidos nacionales', 120, 'Luis Fernández', '2026-05-25', 1),
-(3, 'Deportes Extremos', 'Cobertura de deportes de aventura', 60, 'Pedro Ramírez', '2026-05-28', 1);
+(1, 1, 'Noticias de la Mañana', 'Resumen informativo diario', 60, 'Juan Pérez', '2026-05-01', 1),
+(1, 2, 'Cine Clásico', 'Películas clásicas de los años 80 y 90', 120, 'María López', '2026-05-10', 1),
+(2, 5, 'Documentales del Mundo', 'Exploración de culturas y naturaleza', 90, 'Carlos Gómez', '2026-05-15', 1),
+(2, 5, 'Arte y Cultura', 'Programa sobre arte contemporáneo', 45, 'Ana Torres', '2026-05-20', 1),
+(3, 4, 'Fútbol en Vivo', 'Transmisión de partidos nacionales', 120, 'Luis Fernández', '2026-05-25', 1),
+(3, 4, 'Deportes Extremos', 'Cobertura de deportes de aventura', 60, 'Pedro Ramírez', '2026-05-28', 1);
 
 SELECT * FROM Programa;
 

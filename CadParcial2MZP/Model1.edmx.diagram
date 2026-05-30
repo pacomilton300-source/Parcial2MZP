@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="Parcial2MZPModel.Canal" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Parcial2MZPModel.Programa" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="Parcial2MZPModel.FK_Programa_Canal" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Parcial2MZPModel.CategoriaPrograma" Width="1.5" PointX="0.75" PointY="5.625" />
+        <AssociationConnector Association="Parcial2MZPModel.FK_Programa_CategoriaPrograma" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

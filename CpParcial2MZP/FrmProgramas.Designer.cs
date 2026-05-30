@@ -37,6 +37,8 @@
             this.lblProductor = new System.Windows.Forms.Label();
             this.blbCanal = new System.Windows.Forms.Label();
             this.BoxCanal = new System.Windows.Forms.ComboBox();
+            this.BoxCategoria = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.lblFechaEstreno = new System.Windows.Forms.Label();
             this.gbxLista = new System.Windows.Forms.GroupBox();
             this.dtFechaEstreno = new System.Windows.Forms.DateTimePicker();
@@ -119,6 +121,16 @@
             this.lblProductor.Text = "Productor:     ";
             this.lblProductor.Click += new System.EventHandler(this.lblProductor_Click);
             // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(401, 145);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(112, 25);
+            this.lblCategoria.TabIndex = 26;
+            this.lblCategoria.Text = "Categoría:";
+            // 
             // blbCanal
             // 
             this.blbCanal.AutoSize = true;
@@ -136,6 +148,14 @@
             this.BoxCanal.Name = "BoxCanal";
             this.BoxCanal.Size = new System.Drawing.Size(254, 33);
             this.BoxCanal.TabIndex = 8;
+            // 
+            // BoxCategoria
+            // 
+            this.BoxCategoria.FormattingEnabled = true;
+            this.BoxCategoria.Location = new System.Drawing.Point(560, 140);
+            this.BoxCategoria.Name = "BoxCategoria";
+            this.BoxCategoria.Size = new System.Drawing.Size(249, 33);
+            this.BoxCategoria.TabIndex = 27;
             // 
             // lblFechaEstreno
             // 
@@ -205,6 +225,8 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.lblCategoria);
+            this.gbxDatos.Controls.Add(this.BoxCategoria);
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.blbCanal);
             this.gbxDatos.Controls.Add(this.lblTitulo2);
@@ -329,6 +351,8 @@
         private System.Windows.Forms.Label lblProductor;
         private System.Windows.Forms.Label blbCanal;
         private System.Windows.Forms.ComboBox BoxCanal;
+        private System.Windows.Forms.ComboBox BoxCategoria;
+        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblFechaEstreno;
         private System.Windows.Forms.GroupBox gbxLista;
         private System.Windows.Forms.Button btnActualizar;

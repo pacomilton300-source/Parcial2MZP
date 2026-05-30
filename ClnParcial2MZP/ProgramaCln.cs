@@ -12,17 +12,20 @@ namespace ClnParcial2MZP
         {
             return db.Programa
                 .Where(x => x.estado != -1)
+                .ToList()
                 .Select(x => new
                 {
                     x.id,
                     x.idCanal,
                     Canal = x.Canal.nombre,
+                    x.idCategoriaPrograma,
+                    Categoria = x.CategoriaPrograma != null ? x.CategoriaPrograma.nombre : "Sin categoría",
                     x.titulo,
                     x.descripcion,
                     x.duracion,
                     x.productor,
                     x.fechaEstreno,
-                   
+
                 })
                 .ToList();
         }
@@ -40,6 +43,7 @@ namespace ClnParcial2MZP
             Programa programa = db.Programa.Find(p.id);
 
             programa.idCanal = p.idCanal;
+            programa.idCategoriaPrograma = p.idCategoriaPrograma;
             programa.titulo = p.titulo;
             programa.descripcion = p.descripcion;
             programa.duracion = p.duracion;

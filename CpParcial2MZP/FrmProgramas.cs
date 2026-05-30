@@ -25,7 +25,9 @@ namespace CpParcial2MZP
             dgvLista.DataSource = new ProgramaCln().listar();
 
             cargarCanales();
-          
+
+            cargarCategorias();
+
                 Size = new Size(1047, 504);
         }
         private bool validar()
@@ -57,6 +59,14 @@ namespace CpParcial2MZP
             BoxCanal.ValueMember = "id";
         }
 
+        private void cargarCategorias()
+        {
+            BoxCategoria.DataSource = new CategoriaProgramaCln().listar();
+
+            BoxCategoria.DisplayMember = "nombre";
+            BoxCategoria.ValueMember = "id";
+        }
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -65,6 +75,7 @@ namespace CpParcial2MZP
                 var programa = new Programa()
                 {
                     idCanal = (int)BoxCanal.SelectedValue,
+                    idCategoriaPrograma = (int)BoxCategoria.SelectedValue,
                     titulo = txtTitulo.Text.Trim(),
                     descripcion = txtDescripcion.Text.Trim(),
                     duracion = Convert.ToInt32(txtDuracion.Text),
@@ -87,6 +98,8 @@ namespace CpParcial2MZP
 
         {
             BoxCanal.SelectedValue = dgvLista.CurrentRow.Cells["idCanal"].Value;
+
+            BoxCategoria.SelectedValue = dgvLista.CurrentRow.Cells["idCategoriaPrograma"].Value;
 
             txtTitulo.Text = dgvLista.CurrentRow.Cells["titulo"].Value.ToString();
 
@@ -114,6 +127,7 @@ namespace CpParcial2MZP
              ),
 
                     idCanal = (int)BoxCanal.SelectedValue,
+                    idCategoriaPrograma = (int)BoxCategoria.SelectedValue,
                     titulo = txtTitulo.Text.Trim(),
                     descripcion = txtDescripcion.Text.Trim(),
                     duracion = Convert.ToInt32(txtDuracion.Text),
@@ -135,8 +149,10 @@ namespace CpParcial2MZP
         {
 
             Size = new Size(1047, 731);
-        
+
             BoxCanal.SelectedIndex = 0;
+
+            BoxCategoria.SelectedIndex = 0;
 
             txtTitulo.Clear();
 
@@ -149,7 +165,7 @@ namespace CpParcial2MZP
             dtFechaEstreno.Value = DateTime.Now;
 
             txtTitulo.Focus();
-        
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
